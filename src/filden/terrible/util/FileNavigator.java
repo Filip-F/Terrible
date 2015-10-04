@@ -21,8 +21,24 @@ public class FileNavigator {
 		return files;
 	}
 
+	private static Set<File> folderGetter(File folder,
+			Set<File> folders) {
+		for (File f : folder.listFiles()) {
+			if (f.isDirectory()) {
+				folders.add(f);
+				folderGetter(f, folders);
+			}
+		}
+		return folders;
+	}
+
 	public static Set<File> getFiles(File startLocation, String regexp) {
 		return fileGetter(startLocation, Pattern.compile(regexp),
+				new HashSet<File>());
+	}
+
+	public static Set<File> getFolders(File startLocation) {
+		return folderGetter(startLocation,
 				new HashSet<File>());
 	}
 }

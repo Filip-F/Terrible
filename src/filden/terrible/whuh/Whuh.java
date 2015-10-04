@@ -24,6 +24,6 @@ public class Whuh {
 	}
 
 	public static void main(String[] args) {
-		whuh(new File("C:\\Windows\\Media"));
+		filden.terrible.whuh.Whuh.whuh(new File("C:\\Windows\\Media"));
 	}
 }
