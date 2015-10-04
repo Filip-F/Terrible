@@ -26,11 +26,4 @@ public class FileNavigator {
 		return fileGetter(startLocation, Pattern.compile(regexp),
 				new HashSet<File>());
 	}
-
-	public static void main(String[] args) {
-		for (File f : getFiles(new File(
-				"C:\\Users\\Denton\\Desktop\\New folder"), ".*\\.txt")) {
-			System.out.println(f.getPath());
-		}
-	}
 }
