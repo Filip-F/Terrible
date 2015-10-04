@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public class File$Navigator {
+public class FileNavigator {
 
 	private static Set<File> fileGetter(File file, Pattern pattern,
 			Set<File> files) {

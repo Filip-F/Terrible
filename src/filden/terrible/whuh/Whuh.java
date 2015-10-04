@@ -7,11 +7,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Set;
 
-import filden.terrible.util.File$Navigator;
+import filden.terrible.util.FileNavigator;
 
 public class Whuh {
 	public static void whuh(File basePath) {
-		Set<File> wavs = File$Navigator.getFiles(basePath, ".*\\.wav");
+		Set<File> wavs = FileNavigator.getFiles(basePath, ".*\\.wav");
 		for (File wav : wavs) {
 			
 			try {

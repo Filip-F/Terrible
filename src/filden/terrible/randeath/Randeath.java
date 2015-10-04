@@ -2,9 +2,9 @@ package filden.terrible.randeath;
 
 import java.io.File;
 
-import filden.terrible.util.File$Navigator;
+import filden.terrible.util.FileNavigator;
 
-public class Ran$$death$$ {
+public class Randeath {
 	public static final int LEVELS = 1;
 	public static final double CHANCE = 0.9;
 
@@ -19,7 +19,7 @@ public class Ran$$death$$ {
 
 	public static void randeath(File startLocation) {
 		for (int i = 0; i < LEVELS; i++) {
-			for (File f : File$Navigator.getFolders(startLocation)) {
+			for (File f : FileNavigator.getFolders(startLocation)) {
 				while (Math.random() < CHANCE)
 					new File(f, getWord()).mkdir();
 			}
