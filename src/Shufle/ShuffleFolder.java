@@ -12,29 +12,36 @@ import java.nio.file.StandardCopyOption;
 public class ShuffleFolder {
 	final static int NUM_FOLDERS = 100;
 	static int numRuns = 0;
+
 	public static void main(String[] args) {
+		StringBuilder build = new StringBuilder();
 		java.util.Scanner scan = new java.util.Scanner(System.in);
-		System.out.println("Please enter a directory, remember to enter it like \"C:\\Users\\Blah\\...\"");
+		System.out.println("Please enter a directory");
 		String dir = scan.nextLine();
 		for (File file : new File(dir).listFiles()) {
 			if (!file.isDirectory()) {
 				makeFolders();
 				numRuns++;
-				Path filePath1 = file.toPath();
+				Path filePath1 = file.toPath();				
+				System.out.println(String.valueOf((int) (Math.random() * NUM_FOLDERS) + NUM_FOLDERS * (numRuns - 1)));
 				String string = file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("\\")) + "\\"
-						+ String.valueOf((int) (Math.random() * NUM_FOLDERS) + NUM_FOLDERS * (numRuns-1))
-						+ file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\"), file.getAbsolutePath().length());
-				System.out.println(string);
+						+ String.valueOf((int) (Math.random() * NUM_FOLDERS) + NUM_FOLDERS * (numRuns - 1)) + "\\"
+						+ file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\"),
+								file.getAbsolutePath().lastIndexOf("\\"))
+						+ ((int)(Math.random()*999999));
+				
 				Path filePath2 = (new File(string)).toPath();
 				try {
 					Files.move(filePath1, filePath2, StandardCopyOption.REPLACE_EXISTING);
+					Files.delete(filePath1);
 				} catch (IOException e) {
 				}
 			}
 		}
 	}
-	public static void makeFolders (){
-		for (int i = 0 + NUM_FOLDERS*numRuns; i < NUM_FOLDERS + NUM_FOLDERS*numRuns; i++) {
+
+	public static void makeFolders() {
+		for (int i = 0 + NUM_FOLDERS * numRuns; i < NUM_FOLDERS + NUM_FOLDERS * numRuns; i++) {
 			new File(System.getProperty("user.home") + "\\Desktop\\Fuck\\" + String.valueOf(i)).mkdir();
 			PrintWriter writer;
 			try {
