@@ -6,11 +6,16 @@ import java.util.Scanner;
 
 public class BaseDamage {
 	static Scanner scanner;
-	public static void damage (File code){
-		try {
-			scanner = new Scanner(code);
-			//Damage goes here
-		} catch (FileNotFoundException e) {
+
+	public static String damage(String content) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < content.length(); i++) {
+			if (content.charAt(i) == '+' || content.charAt(i) == '-') {
+				sb.append(Math.random() > 0.5 ? '+' : '-');
+			} else {
+				sb.append(content.charAt(i));
+			}
 		}
+		return sb.toString();
 	}
 }
