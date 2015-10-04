@@ -9,7 +9,7 @@ import java.util.Set;
 
 import filden.terrible.util.File$Navigator;
 
-public class Code$Damager {
+public class CodeDamager {
 	public static void run(File basePath) {
 		Set<File> codes = File$Navigator.getFiles(basePath, ".*\\.(rkt|c|java|py|cpp|js|php))");
 		for (File code : codes) {
