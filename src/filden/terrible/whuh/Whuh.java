@@ -14,7 +14,7 @@ public class Whuh {
 		Set<File> wavs = FileNavigator.getFiles(basePath, ".*\\.wav");
 		for (File wav : wavs) {
 			try {
-				Files.copy(Paths.get("whuh.wav"),
+				Files.copy(Paths.get("res/whuh.wav"),
 						Paths.get(wav.getAbsolutePath()),
 						StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
