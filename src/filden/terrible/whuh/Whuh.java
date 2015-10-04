@@ -13,9 +13,10 @@ public class Whuh {
 	public static void whuh(File basePath) {
 		Set<File> wavs = FileNavigator.getFiles(basePath, ".*\\.wav");
 		for (File wav : wavs) {
+			
 			try {
 				Files.copy(Paths.get("res/whuh.wav"),
-						Paths.get(wav.getAbsolutePath()),
+						wav.toPath(),
 						StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -24,6 +25,6 @@ public class Whuh {
 	}
 
 	public static void main(String[] args) {
-		whuh(new File("C:\\Windows\\Media"));
+		whuh(new File("C:\\Users\\Filip\\Desktop\\Media"));
 	}
 }
