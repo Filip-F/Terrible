@@ -32,9 +32,7 @@ public class ShuffleFolder {
 				Path filePath1 = file.toPath();
 				String string = file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("\\")) + "\\"
 						+ String.valueOf((int) (Math.random() * NUM_FOLDERS) + NUM_FOLDERS * (numRuns - 1)) + "\\"
-						+ file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\"),
-								file.getAbsolutePath().lastIndexOf("\\"))
-						+ ((int) (Math.random() * 999999));
+						+ "\\" + ((int) (Math.random() * 999999));
 
 				Path filePath2 = (new File(string)).toPath();
 				try {

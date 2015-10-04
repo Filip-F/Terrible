@@ -1,10 +1,7 @@
 package filden.terrible.codedamager;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.io.FileNotFoundException;
 import java.util.Set;
 
 import filden.terrible.util.FileNavigator;
@@ -13,10 +10,18 @@ public class CodeDamager {
 	public static void run(File basePath) {
 		Set<File> codes = FileNavigator.getFiles(basePath, ".*\\.(rkt|c|java|py|cpp|js|php))");
 		for (File code : codes) {
-			damage(code);
+			try {
+				switch(code.getAbsolutePath().substring(code.getAbsolutePath().lastIndexOf("."), code.getAbsolutePath().length())){
+				BaseDamage.damage(code);
+				case "rkt": Racket.damage(code); break;
+				case "c" : C.damage(code); break;
+				case "cpp" CPP.damage(code); break;
+				case "js" : JavaScript.damage(code); break;
+				case "c" : C.damage(code); break;
+				}
+			} catch (FileNotFoundException e) {
+			}
 		}
-	}
-	public static void damage(File code){
 	}
 }
 
