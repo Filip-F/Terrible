@@ -25,4 +25,8 @@ public class Randeath {
 			}
 		}
 	}
+	
+	public static void main(String[] args) {
+		randeath(new File("C:\\Users\\Denton\\Desktop\\New folder"));
+	}
 }
