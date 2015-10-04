@@ -23,8 +23,4 @@ public class Whuh {
 			}
 		}
 	}
-
-	public static void main(String[] args) {
-		whuh(new File("C:\\Users\\Filip\\Desktop\\Media"));
-	}
 }
