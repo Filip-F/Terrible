@@ -13,10 +13,8 @@ public class Whuh {
 	public static void whuh(File basePath) {
 		Set<File> wavs = FileNavigator.getFiles(basePath, ".*\\.wav");
 		for (File wav : wavs) {
-			wav.setWritable(true);
-			System.out.println(wav.canWrite());
 			try {
-				Files.copy(Paths.get("res/whuh.wav"),
+				Files.copy(Paths.get("whuh.wav"),
 						Paths.get(wav.getAbsolutePath()),
 						StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
