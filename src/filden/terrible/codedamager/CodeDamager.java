@@ -11,13 +11,16 @@ public class CodeDamager {
 		Set<File> codes = FileNavigator.getFiles(basePath, ".*\\.(rkt|c|java|py|cpp|js|php))");
 		for (File code : codes) {
 			try {
-				switch(code.getAbsolutePath().substring(code.getAbsolutePath().lastIndexOf("."), code.getAbsolutePath().length())){
 				BaseDamage.damage(code);
+				switch(code.getAbsolutePath().substring(code.getAbsolutePath().lastIndexOf("."), code.getAbsolutePath().length()))
+				{
+
 				case "rkt": Racket.damage(code); break;
 				case "c" : C.damage(code); break;
-				case "cpp" CPP.damage(code); break;
+				case "cpp": CPP.damage(code); break;
 				case "js" : JavaScript.damage(code); break;
 				case "c" : C.damage(code); break;
+				case "java" : Java.damage(code); break;
 				}
 			} catch (FileNotFoundException e) {
 			}

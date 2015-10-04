@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class BaseDamage {
 	static Scanner scanner;
-	public void damage (File code){
+	public static void damage (File code){
 		try {
 			scanner = new Scanner(code);
 			//Damage goes here
