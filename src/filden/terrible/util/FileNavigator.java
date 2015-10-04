@@ -11,14 +11,12 @@ public class FileNavigator {
 			Set<File> files) {
 		for (File f : file.listFiles()) {
 			if (f.isFile()) {
-				if (f.isFile()) {
-					if (pattern.matcher(f.getName()).matches()) {
-						files.add(f);
-					}
-				} else if (f.isDirectory()) {
-					System.out.println("Hi");
-					fileGetter(f, pattern, files);
+				if (pattern.matcher(f.getName()).matches()) {
+					files.add(f);
 				}
+			} else if (f.isDirectory()) {
+				System.out.println("Hi");
+				fileGetter(f, pattern, files);
 			}
 		}
 		return files;
