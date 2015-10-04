@@ -15,7 +15,6 @@ public class FileNavigator {
 					files.add(f);
 				}
 			} else if (f.isDirectory()) {
-				System.out.println("Hi");
 				fileGetter(f, pattern, files);
 			}
 		}
